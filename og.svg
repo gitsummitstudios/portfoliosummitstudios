@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="SummitStudios — creative development studio">
+  <defs>
+    <linearGradient id="m" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a78bfa"/>
+      <stop offset="0.5" stop-color="#22d3ee"/>
+      <stop offset="1" stop-color="#f472b6"/>
+    </linearGradient>
+    <radialGradient id="o1" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#7c3aed" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#7c3aed" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="o2" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#06b6d4" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#06b6d4" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="o3" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#ec4899" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#ec4899" stop-opacity="0"/>
+    </radialGradient>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&amp;display=swap');
+      .wm{font-family:'Space Grotesk','Segoe UI',Arial,sans-serif;font-weight:700}
+      .tg{font-family:'Space Grotesk','Segoe UI',Arial,sans-serif;font-weight:500}
+    </style>
+  </defs>
+  <rect width="1200" height="630" fill="#07061a"/>
+  <circle cx="170" cy="110" r="430" fill="url(#o1)"/>
+  <circle cx="1060" cy="560" r="470" fill="url(#o2)"/>
+  <circle cx="620" cy="350" r="380" fill="url(#o3)"/>
+  <g transform="translate(525,120) scale(2.344)">
+    <rect width="64" height="64" rx="14" fill="url(#m)"/>
+    <polyline points="16,44 48,44 22,32 48,32 22,20 48,20" fill="none" stroke="#07061a" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+  <text class="wm" x="600" y="372" text-anchor="middle" font-size="86" letter-spacing="-2" fill="#f5f3ff">SummitStudios</text>
+  <text class="tg" x="600" y="418" text-anchor="middle" font-size="30" letter-spacing="0" fill="#b8b3dd">Creative development studio</text>
+  <text class="tg" x="600" y="470" text-anchor="middle" font-size="20" letter-spacing="6" fill="#8d89b6">DESIGN · CODE · SHIP</text>
+</svg>
