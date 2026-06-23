@@ -125,6 +125,13 @@
             margin: 0 auto;
         }
 
+        .hero-logo {
+            width: 52px;
+            height: 52px;
+            display: block;
+            margin-bottom: 1.5rem;
+        }
+
         .availability {
             display: inline-flex;
             align-items: center;
@@ -588,6 +595,7 @@
                 justify-content: center;
                 padding: 13vh 20px 7vh;
             }
+            .hero-logo { width: 46px; height: 46px; margin-bottom: 1.1rem; }
             .availability { margin-bottom: 1.4rem; }
             .hero-title { font-size: clamp(2rem, 9vw, 2.9rem); margin-bottom: 1.1rem; }
             .hero-tagline { display: block; font-size: 1rem; margin-bottom: 1.8rem; max-width: 36ch; }
@@ -638,6 +646,20 @@
 
     <!-- Hero -->
     <main class="hero-content">
+        <svg class="hero-logo fade-up" style="animation-delay: 0.02s;" width="52" height="52" viewBox="0 0 64 64" role="img" aria-label="SummitStudios logo">
+            <defs>
+                <linearGradient id="heroMark" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#a78bfa"/>
+                    <stop offset="0.5" stop-color="#22d3ee"/>
+                    <stop offset="1" stop-color="#f472b6"/>
+                </linearGradient>
+                <mask id="heroMarkCut">
+                    <rect width="64" height="64" rx="14" fill="#fff"/>
+                    <polyline points="16,44 48,44 22,32 48,32 22,20 48,20" fill="none" stroke="#000" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round"/>
+                </mask>
+            </defs>
+            <rect width="64" height="64" rx="14" fill="url(#heroMark)" mask="url(#heroMarkCut)"/>
+        </svg>
         <span class="availability fade-up" style="animation-delay: 0.05s;">
             <span class="dot"></span> Available for work
         </span>
