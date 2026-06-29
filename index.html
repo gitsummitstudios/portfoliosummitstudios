@@ -198,6 +198,26 @@
         .work-card p { font-family: var(--m); font-size: 0.8rem; line-height: 1.5; color: var(--ink-2); }
         .work-card:hover p { color: var(--bone-2); }
         .work-foot { margin-top: auto; padding-top: 18px; font-family: var(--m); font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.6; }
+        /* Live preview thumb: auto-rotating crossfade + hover zoom (block 02) */
+        .work-thumb--live { padding: 0; overflow: hidden; position: relative; }
+        .work-thumb--live .thumb-slides { position: absolute; inset: 0; }
+        .work-thumb--live .thumb-slide {
+            position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+            opacity: 0; transform: scale(1.01);
+            transition: opacity 0.6s var(--snap), transform 0.4s var(--snap);
+        }
+        .work-thumb--live .thumb-slide.is-active { opacity: 1; }
+        a.work-card:hover .work-thumb--live .thumb-slide.is-active { transform: scale(1.07); }
+        .thumb-badge {
+            position: absolute; left: 12px; bottom: 12px; z-index: 2;
+            font-family: var(--m); font-weight: 700; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.14em;
+            background: var(--ink); color: var(--bone); padding: 5px 9px; border: 1.5px solid var(--ink);
+            transition: background 0.15s var(--snap), color 0.15s var(--snap);
+        }
+        a.work-card:hover .thumb-badge { background: var(--bone); color: var(--ink); }
+        @media (prefers-reduced-motion: reduce) {
+            a.work-card:hover .work-thumb--live .thumb-slide.is-active { transform: none; }
+        }
 
         /* ---------- Services ---------- */
         .svc-list { border-top: 1.5px solid var(--ink); margin-top: 40px; }
@@ -343,7 +363,14 @@
                 <!-- PROJECT 02 -Lileya flower shop (live demo) -->
                 <a class="work-card reveal" href="pet2/index.html" aria-label="Open the Lileya flower shop live demo">
                     <div class="work-top"><span class="idx">02</span><span>↗</span></div>
-                    <div class="work-thumb">Live demo</div>
+                    <div class="work-thumb work-thumb--live" aria-hidden="true">
+                        <div class="thumb-slides">
+                            <img class="thumb-slide is-active" src="pet2/assets/img/hero.jpg" alt="" loading="lazy" width="600" height="450">
+                            <img class="thumb-slide" src="pet2/assets/img/pastel.jpg" alt="" loading="lazy" width="600" height="450">
+                            <img class="thumb-slide" src="pet2/assets/img/classic25.jpg" alt="" loading="lazy" width="600" height="450">
+                        </div>
+                        <span class="thumb-badge">Live ↗</span>
+                    </div>
                     <h3>Lileya — Flower Shop</h3>
                     <p>Boutique florist storefront: catalog with filters, build-your-own-bouquet configurator, and a working cart. Vanilla JS, no build step.</p>
                     <div class="work-foot">View live →</div>
@@ -441,6 +468,21 @@
                 revealEls.forEach((el) => io.observe(el));
             } else {
                 revealEls.forEach((el) => el.classList.add('in'));
+            }
+
+            // Auto-rotating live preview thumbnail (crossfade); respects reduced motion
+            const slidesWrap = document.querySelector('.thumb-slides');
+            if (slidesWrap && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                const slides = slidesWrap.querySelectorAll('.thumb-slide');
+                if (slides.length > 1) {
+                    let si = 0;
+                    setInterval(() => {
+                        if (document.hidden) return;
+                        slides[si].classList.remove('is-active');
+                        si = (si + 1) % slides.length;
+                        slides[si].classList.add('is-active');
+                    }, 2800);
+                }
             }
         });
     </script>
