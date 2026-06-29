@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Каталог квітів та букетів | Лілея, Лубни</title>
+  <meta name="description" content="Каталог авторських букетів, троянд, весільної флористики та композицій. Доставка квітів по Лубнах.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Prata&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="catalog">
+  <a class="skip-link" href="#main">Перейти до вмісту</a>
+  <header class="site-header" data-chrome="header"></header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Каталог</span>
+        <h1 style="margin:.4rem 0 .6rem">Наші квіти та букети</h1>
+        <p class="section-lead" style="margin-inline:0">Оберіть готову композицію або зателефонуйте — і ми зберемо букет за вашим побажанням.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:2rem">
+      <div class="container">
+        <div class="toolbar" style="margin-bottom:1.6rem">
+          <div class="filters" id="catalogFilters" role="group" aria-label="Фільтр за категорією"></div>
+          <div style="display:flex;align-items:center;gap:1rem">
+            <span class="result-count" id="catalogCount"></span>
+            <label class="sr-only" for="catalogSort">Сортування</label>
+            <select class="select" id="catalogSort">
+              <option value="default">За популярністю</option>
+              <option value="asc">Спочатку дешевші</option>
+              <option value="desc">Спочатку дорожчі</option>
+            </select>
+          </div>
+        </div>
+        <div class="card-grid" id="catalogGrid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" data-chrome="footer"></footer>
+
+  <script type="module" src="js/page-catalog.js"></script>
+</body>
+</html>

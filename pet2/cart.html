@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Оформлення замовлення | Лілея, Лубни</title>
+  <meta name="description" content="Оформлення замовлення квітів з доставкою по Лубнах.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Prata&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="cart">
+  <a class="skip-link" href="#main">Перейти до вмісту</a>
+  <header class="site-header" data-chrome="header"></header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Оформлення</span>
+        <h1 style="margin:.4rem 0 .4rem">Ваше замовлення</h1>
+        <p class="section-lead" style="margin-inline:0">Залишилось кілька кроків до того, як квіти вирушать до адресата.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:2rem">
+      <div class="container" id="checkoutRoot">
+        <form class="checkout" id="checkoutForm" novalidate>
+          <div class="panel">
+            <h2 style="font-size:var(--step-2);margin-bottom:1.2rem">Контактні дані</h2>
+            <div class="row-2">
+              <div class="field"><label for="name">Ваше ім'я <span class="req">*</span></label><input id="name" name="name" required autocomplete="name"><span class="error">Вкажіть ім'я</span></div>
+              <div class="field"><label for="phone">Телефон <span class="req">*</span></label><input id="phone" name="phone" type="tel" required autocomplete="tel" placeholder="+38 (0__) ___-__-__"><span class="error">Вкажіть коректний телефон</span></div>
+            </div>
+            <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" placeholder="для чека (необов'язково)"><span class="error">Невірний email</span></div>
+
+            <h2 style="font-size:var(--step-2);margin:1.8rem 0 1.2rem">Доставка</h2>
+            <div class="pay-options" style="margin-bottom:1.1rem">
+              <label class="pay-option"><input type="radio" name="delivery" value="courier" checked><span><b>Кур'єр по Лубнах</b><small>150 грн · безкоштовно від 1500 грн · 60 хв</small></span></label>
+              <label class="pay-option"><input type="radio" name="delivery" value="pickup"><span><b>Самовивіз із майстерні</b><small>вул. Ярослава Мудрого, 12 · безкоштовно</small></span></label>
+            </div>
+            <div class="row-2">
+              <div class="field"><label for="addr">Адреса доставки <span class="req">*</span></label><input id="addr" name="address" required placeholder="вулиця, будинок, кв."><span class="error">Вкажіть адресу</span></div>
+              <div class="field"><label for="date">Бажана дата й час</label><input id="date" name="date" type="datetime-local"></div>
+            </div>
+            <div class="field"><label for="recipient">Отримувач (якщо це сюрприз)</label><input id="recipient" name="recipient" placeholder="ім'я та телефон отримувача"></div>
+            <div class="field"><label for="card">Текст листівки</label><textarea id="card" name="card_text" placeholder="Напишіть тепле побажання — додамо безкоштовно 🌷"></textarea></div>
+
+            <h2 style="font-size:var(--step-2);margin:1.8rem 0 1.2rem">Оплата</h2>
+            <div class="pay-options">
+              <label class="pay-option"><input type="radio" name="pay" value="cash" checked><span><b>Оплата при отриманні</b><small>готівкою або карткою кур'єру / у майстерні</small></span></label>
+              <label class="pay-option"><input type="radio" name="pay" value="transfer"><span><b>Переказ на картку</b><small>надішлемо реквізити після підтвердження</small></span></label>
+              <label class="pay-option"><input type="radio" name="pay" value="liqpay"><span><b>Онлайн-оплата карткою</b><small>LiqPay / Apple Pay / Google Pay (потребує підключення — див. README)</small></span></label>
+            </div>
+
+            <button type="submit" class="btn btn--accent btn--lg btn--block" style="margin-top:1.8rem">Підтвердити замовлення</button>
+            <p class="hint center" style="margin-top:.8rem">Натискаючи кнопку, ви погоджуєтесь з умовами обробки даних.</p>
+          </div>
+
+          <aside class="panel order-summary">
+            <h2 style="font-size:var(--step-1);margin-bottom:1rem">Разом</h2>
+            <div id="osItems"></div>
+            <div id="osTotals" style="margin-top:1.2rem"></div>
+          </aside>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" data-chrome="footer" data-variant="minimal"></footer>
+
+  <script type="module" src="js/page-cart.js"></script>
+</body>
+</html>

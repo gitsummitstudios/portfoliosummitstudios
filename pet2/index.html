@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Лілея — квіткова майстерня у Лубнах | Доставка квітів</title>
+  <meta name="description" content="Авторські букети, троянди, весільна флористика та композиції у Лубнах. Свіжі квіти з доставкою по місту за 60 хвилин.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Prata&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- LCP: предзавантажуємо головне фото героя одразу (JS лише міняє data-img→src, уже з кешу) -->
+  <link rel="preload" as="image" href="assets/img/neznist.jpg" fetchpriority="high">
+</head>
+<body data-page="home">
+  <a class="skip-link" href="#main">Перейти до вмісту</a>
+
+  <!-- HEADER (рендериться js/chrome.js) -->
+  <header class="site-header" data-chrome="header"></header>
+
+  <main id="main">
+    <!-- HERO (Editorial Atelier) -->
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__inner">
+          <span class="eyebrow">Квіткова майстерня у Лубнах · з 2017</span>
+          <h1>Квіти, що говорять <em>мовою серця</em></h1>
+          <p>Авторські букети зі свіжих сезонних квітів. Збираємо з любов'ю та доставляємо по Лубнах за 60 хвилин.</p>
+          <div class="hero__cta">
+            <a class="btn btn--accent btn--lg" href="catalog.html">Обрати букет</a>
+            <a class="btn btn--ghost btn--lg" href="about.html#delivery">Умови доставки</a>
+          </div>
+          <div class="hero__stats">
+            <div><b>12&nbsp;000+</b><span>щасливих клієнтів</span></div>
+            <div><b>60&nbsp;хв</b><span>доставка по місту</span></div>
+            <div><b>9&nbsp;років</b><span>дбаємо про красу</span></div>
+          </div>
+        </div>
+        <div class="hero__media">
+          <figure class="hero__photo">
+            <img data-img="assets/img/neznist.jpg" data-w="1000" alt="Авторський пастельний букет «Ніжність» ручної роботи" width="900" height="1100" fetchpriority="high">
+            <span class="hero__est">Established · Lubny</span>
+          </figure>
+          <div class="hero__tag">
+            <span class="dot" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.35-9.5-8.5C.8 9.6 2 6 5.5 6c2 0 3.2 1.2 4.5 3 1.3-1.8 2.5-3 4.5-3 3.5 0 4.7 3.6 3 6.5C19 16.65 12 21 12 21Z"/></svg></span>
+            <div><b>Букет дня</b><span>«Ніжність»</span></div>
+            <span class="price">1&nbsp;250 грн</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero__petals" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    </section>
+
+    <!-- ПЕРЕВАГИ -->
+    <section class="section section--tight">
+      <div class="container">
+        <div class="features">
+          <div class="feature reveal" data-delay="1">
+            <div class="feature__icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg></div>
+            <h3>Свіжість гарантовано</h3><p>Квіти від перевірених плантацій. Стійкість букета — від 7 днів або замінимо.</p>
+          </div>
+          <div class="feature reveal" data-delay="2">
+            <div class="feature__icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h13v8H3zM16 10h3l2 3v2h-5"/><circle cx="7" cy="18" r="1.6"/><circle cx="18" cy="18" r="1.6"/></svg></div>
+            <h3>Доставка за 60 хвилин</h3><p>Безкоштовно по Лубнах від 1500 грн. Фото букета перед відправленням.</p>
+          </div>
+          <div class="feature reveal" data-delay="3">
+            <div class="feature__icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-9.2-9C1.3 9 2.6 5.5 6 5.5c2 0 3.2 1.3 4 2.6.8-1.3 2-2.6 4-2.6 3.4 0 4.7 3.5 3.2 6.5C19 16.5 12 21 12 21Z"/></svg></div>
+            <h3>Ручна робота флориста</h3><p>Кожен букет — авторська композиція. Зберемо за вашим побажанням.</p>
+          </div>
+          <div class="feature reveal" data-delay="4">
+            <div class="feature__icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 5 5.6.6-4.2 3.8 1.2 5.6L12 19l-5 2.9 1.2-5.6L4 12.6 9.6 12 12 2Z"/></svg></div>
+            <h3>Листівка у подарунок</h3><p>До кожного замовлення — авторська листівка з вашим теплим побажанням.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ПОПУЛЯРНЕ -->
+    <section class="section" style="background:linear-gradient(180deg,var(--paper),var(--cream))">
+      <div class="container">
+        <div class="center reveal" style="margin-bottom:2.5rem">
+          <span class="eyebrow">Обране флористом</span>
+          <h2>Букети, які найчастіше дарують</h2>
+          <p class="section-lead">Найпопулярніші композиції цього сезону — готові порадувати вже сьогодні.</p>
+        </div>
+        <div class="card-grid" id="featuredGrid"></div>
+        <div class="center" style="margin-top:2.5rem">
+          <a class="btn btn--ghost btn--lg" href="catalog.html">Переглянути весь каталог →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ЗБЕРІТЬ ВЛАСНИЙ БУКЕТ (конфігуратор · Stage 5) -->
+    <section class="section" id="builder" style="background:var(--cream-2)">
+      <div class="container">
+        <div class="center reveal" style="margin-bottom:2.5rem">
+          <span class="eyebrow">Ваша композиція</span>
+          <h2>Зберіть власний букет</h2>
+          <p class="section-lead">Оберіть розмір, гаму та оформлення — флорист збере букет вручну саме під ваш настрій.</p>
+        </div>
+
+        <div class="configurator reveal" id="configRoot">
+          <!-- Прев'ю + жива ціна -->
+          <div class="cfg-preview">
+            <figure class="cfg-preview__media">
+              <img id="cfgImg" data-img="assets/img/pastel.jpg" data-w="700" alt="Прев'ю букета · пастельна гама" width="700" height="875">
+              <figcaption class="cfg-preview__cap" id="cfgCap">Пастельна гама</figcaption>
+            </figure>
+            <div class="cfg-preview__price">
+              <span class="cfg-preview__label">Орієнтовна вартість</span>
+              <strong class="cfg-preview__sum" id="cfgPrice" aria-live="polite">1&nbsp;300 грн</strong>
+            </div>
+          </div>
+
+          <!-- Форма -->
+          <form class="cfg-form" id="cfgForm">
+            <fieldset class="cfg-group">
+              <legend class="cfg-legend">Розмір букета</legend>
+              <div class="cfg-opts">
+                <label class="cfg-opt"><input type="radio" name="cfg-size" value="s"><span class="cfg-opt__main"><b>S · компактний</b><small>близько 15 квіток</small></span><span class="cfg-opt__add">900 грн</span></label>
+                <label class="cfg-opt"><input type="radio" name="cfg-size" value="m" checked><span class="cfg-opt__main"><b>M · класичний</b><small>близько 25 квіток</small></span><span class="cfg-opt__add">1&nbsp;300 грн</span></label>
+                <label class="cfg-opt"><input type="radio" name="cfg-size" value="l"><span class="cfg-opt__main"><b>L · розкішний</b><small>близько 39 квіток</small></span><span class="cfg-opt__add">1&nbsp;800 грн</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="cfg-group">
+              <legend class="cfg-legend">Кольорова гама</legend>
+              <div class="cfg-opts cfg-opts--swatch">
+                <label class="cfg-swatch"><input type="radio" name="cfg-palette" value="pastel" checked><span class="cfg-swatch__dot cfg-swatch__dot--pastel" aria-hidden="true"></span><span>Пастельна</span></label>
+                <label class="cfg-swatch"><input type="radio" name="cfg-palette" value="red"><span class="cfg-swatch__dot cfg-swatch__dot--red" aria-hidden="true"></span><span>Червона</span></label>
+                <label class="cfg-swatch"><input type="radio" name="cfg-palette" value="white"><span class="cfg-swatch__dot cfg-swatch__dot--white" aria-hidden="true"></span><span>Біла</span></label>
+                <label class="cfg-swatch"><input type="radio" name="cfg-palette" value="bright"><span class="cfg-swatch__dot cfg-swatch__dot--bright" aria-hidden="true"></span><span>Яскрава</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="cfg-group">
+              <legend class="cfg-legend">Оформлення</legend>
+              <div class="cfg-opts">
+                <label class="cfg-opt"><input type="radio" name="cfg-wrap" value="kraft" checked><span class="cfg-opt__main"><b>Крафт-папір</b><small>натуральний, еко-стиль</small></span><span class="cfg-opt__add">включено</span></label>
+                <label class="cfg-opt"><input type="radio" name="cfg-wrap" value="paper"><span class="cfg-opt__main"><b>Дизайнерський папір</b><small>матовий, зі стрічкою</small></span><span class="cfg-opt__add">+120 грн</span></label>
+                <label class="cfg-opt"><input type="radio" name="cfg-wrap" value="box"><span class="cfg-opt__main"><b>Капелюшна коробка</b><small>не потребує вази</small></span><span class="cfg-opt__add">+280 грн</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="cfg-group">
+              <legend class="cfg-legend">Листівка з побажанням</legend>
+              <div class="cfg-opts">
+                <label class="cfg-opt"><input type="radio" name="cfg-card" value="no" checked><span class="cfg-opt__main"><b>Без листівки</b></span><span class="cfg-opt__add">—</span></label>
+                <label class="cfg-opt"><input type="radio" name="cfg-card" value="yes"><span class="cfg-opt__main"><b>Додати листівку</b><small>авторська, з вашим текстом</small></span><span class="cfg-opt__add">+60 грн</span></label>
+              </div>
+            </fieldset>
+
+            <button type="button" class="btn btn--accent btn--lg btn--block" id="cfgAdd">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+              <span>Додати в кошик · <span id="cfgBtnPrice">1&nbsp;300 грн</span></span>
+            </button>
+            <p class="cfg-note">Точну композицію флорист узгодить із вами після замовлення 🌿</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ПОДІЇ -->
+    <section class="section">
+      <div class="container">
+        <div class="center reveal" style="margin-bottom:2.5rem">
+          <span class="eyebrow">До кожної нагоди</span>
+          <h2>Квіти для особливих моментів</h2>
+        </div>
+        <div class="occasions reveal">
+          <a class="occasion" href="catalog.html?cat=roses"><img data-img="assets/img/osvidchen.jpg" alt="Романтика" width="600" height="800"><span>Романтика</span></a>
+          <a class="occasion" href="catalog.html?cat=wedding"><img data-img="assets/img/narechena.jpg" alt="Весілля" width="600" height="800"><span>Весілля</span></a>
+          <a class="occasion" href="catalog.html?cat=bouquets"><img data-img="assets/img/pastel.jpg" alt="День народження" width="600" height="800"><span>День народження</span></a>
+          <a class="occasion" href="catalog.html?cat=boxes"><img data-img="assets/img/dostatok.jpg" alt="Подяка" width="600" height="800"><span>Подяка</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ПРО НАС -->
+    <section class="section" style="background:var(--cream-2)">
+      <div class="container split">
+        <div class="reveal">
+          <span class="eyebrow">Наша історія</span>
+          <h2>Майстерня, де народжується краса</h2>
+          <p style="margin-top:1rem">Уже 9 років «Лілея» дарує мешканцям Лубен квіткові емоції. Ми починали з невеликої студії, а сьогодні це улюблена майстерня міста, якій довіряють найважливіші моменти життя.</p>
+          <p style="margin-top:.8rem">Працюємо лише зі свіжими квітами, а кожен букет збираємо вручну — з увагою до деталей, кольору й настрою. За кожною композицією стоять Олена, Марія та Софія — наші флористи, закохані у свою справу.</p>
+          <div style="display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.6rem">
+            <a class="btn" href="about.html">Дізнатися більше</a>
+            <a class="btn btn--ghost" href="about.html#contacts">Зв'язатися з нами</a>
+          </div>
+          <p style="margin-top:1.1rem"><a class="link-arrow" href="about.html#team">Знайомство з нашими флористами</a></p>
+        </div>
+        <div class="reveal" data-delay="2">
+          <div class="split__media">
+            <img data-img="assets/img/florist-work.jpg" data-w="900" alt="Флорист збирає букет" width="750" height="900">
+            <div class="badge-float"><b>4.9 / 5</b><span>понад 800 відгуків</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ВІДГУКИ -->
+    <section class="section">
+      <div class="container">
+        <div class="center reveal" style="margin-bottom:2.5rem">
+          <span class="eyebrow">Відгуки</span>
+          <h2>Що кажуть наші клієнти</h2>
+        </div>
+        <div class="testi-grid">
+          <figure class="testi reveal" data-delay="1">
+            <div class="testi__stars" aria-label="5 з 5">★★★★★</div>
+            <p>«Замовляла букет нареченій — доставили вчасно, фото надіслали заздалегідь. Квіти стояли два тижні!»</p>
+            <figcaption class="testi__who"><span class="testi__ava">О</span><span><b>Оксана</b><br><span>Лубни</span></span></figcaption>
+          </figure>
+          <figure class="testi reveal" data-delay="2">
+            <div class="testi__stars" aria-label="5 з 5">★★★★★</div>
+            <p>«Найкраща майстерня в місті. Завжди свіжі квіти й чудові ідеї композицій. Дякую за «Пастель»!»</p>
+            <figcaption class="testi__who"><span class="testi__ava">А</span><span><b>Андрій</b><br><span>Лубни</span></span></figcaption>
+          </figure>
+          <figure class="testi reveal" data-delay="3">
+            <div class="testi__stars" aria-label="5 з 5">★★★★★</div>
+            <p>«Робили весільну флористику — усе бездоганно. Гості були в захваті від арки та букета.»</p>
+            <figcaption class="testi__who"><span class="testi__ava">М</span><span><b>Марія</b><br><span>Лубни</span></span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section section--tight">
+      <div class="container">
+        <div class="cta-band reveal">
+          <img data-img="assets/img/pastel.jpg" data-w="1400" alt="" width="1400" height="600">
+          <span class="eyebrow" style="color:var(--gold-soft)">Не знаєте, що обрати?</span>
+          <h2>Зберемо букет за вашим бюджетом і настроєм</h2>
+          <p>Зателефонуйте або залиште заявку — флорист підбере ідеальну композицію саме для вашої нагоди.</p>
+          <div style="display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap;margin-top:1.6rem">
+            <a class="btn btn--light btn--lg" href="tel:+380501234567">+38 (050) 123-45-67</a>
+            <a class="btn btn--accent btn--lg" href="catalog.html">До каталогу</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER (рендериться js/chrome.js) -->
+  <footer class="site-footer" data-chrome="footer"></footer>
+
+  <script type="module" src="js/page-home.js"></script>
+</body>
+</html>

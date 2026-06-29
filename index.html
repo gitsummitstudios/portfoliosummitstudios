@@ -182,7 +182,9 @@
 
         /* ---------- Work ---------- */
         .work-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1.5px solid var(--ink); border-left: 1.5px solid var(--ink); margin-top: 48px; }
-        .work-card { border-right: 1.5px solid var(--ink); border-bottom: 1.5px solid var(--ink); padding: 22px; display: flex; flex-direction: column; background: var(--bone); transition: background 0.15s var(--snap), color 0.15s var(--snap); }
+        .work-card { border-right: 1.5px solid var(--ink); border-bottom: 1.5px solid var(--ink); padding: 22px; display: flex; flex-direction: column; background: var(--bone); color: var(--ink); text-decoration: none; transition: background 0.15s var(--snap), color 0.15s var(--snap); }
+        a.work-card { cursor: pointer; }
+        a.work-card:hover .work-foot { opacity: 1; }
         .work-card:hover { background: var(--ink); color: var(--bone); }
         .work-top { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--m); font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 18px; }
         .work-top .idx { font-family: var(--d); font-weight: 700; font-size: 1.4rem; letter-spacing: 0; }
@@ -338,14 +340,14 @@
                     <p>Case study in progress. Details soon.</p>
                     <div class="work-foot">Add project →</div>
                 </article>
-                <!-- PROJECT 02 -->
-                <article class="work-card reveal">
-                    <div class="work-top"><span class="idx">02</span><span>/</span></div>
-                    <div class="work-thumb">Coming soon</div>
-                    <h3>Project 02</h3>
-                    <p>Case study in progress. Details soon.</p>
-                    <div class="work-foot">Add project →</div>
-                </article>
+                <!-- PROJECT 02 -Lileya flower shop (live demo) -->
+                <a class="work-card reveal" href="pet2/index.html" aria-label="Open the Lileya flower shop live demo">
+                    <div class="work-top"><span class="idx">02</span><span>↗</span></div>
+                    <div class="work-thumb">Live demo</div>
+                    <h3>Lileya — Flower Shop</h3>
+                    <p>Boutique florist storefront: catalog with filters, build-your-own-bouquet configurator, and a working cart. Vanilla JS, no build step.</p>
+                    <div class="work-foot">View live →</div>
+                </a>
                 <!-- PROJECT 03 -->
                 <article class="work-card reveal">
                     <div class="work-top"><span class="idx">03</span><span>/</span></div>
