@@ -9,12 +9,12 @@
     <meta name="description" content="SummitStudios is a creative development studio. Product design, front-end engineering, and motion, shipped end to end.">
     <meta name="theme-color" content="#E7E4DC">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://gitsummitstudios.github.io/portfoliosummitstudios/">
+    <meta property="og:url" content="https://portfolio-summit-studios.vercel.app/">
     <meta property="og:title" content="SummitStudios | Creative Development Studio">
     <meta property="og:description" content="Product design, front-end engineering, and motion, shipped end to end.">
-    <meta property="og:image" content="https://gitsummitstudios.github.io/portfoliosummitstudios/og.png">
+    <meta property="og:image" content="https://portfolio-summit-studios.vercel.app/og.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://gitsummitstudios.github.io/portfoliosummitstudios/og.png">
+    <meta name="twitter:image" content="https://portfolio-summit-studios.vercel.app/og.png">
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23a78bfa'/%3E%3Cstop offset='0.5' stop-color='%2322d3ee'/%3E%3Cstop offset='1' stop-color='%23f472b6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Cpolyline points='16,44 48,44 22,32 48,32 22,20 48,20' fill='none' stroke='%23060418' stroke-width='6.5' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E">
     <style>
         @font-face { font-family: 'Space Grotesk'; font-style: normal; font-weight: 300 700; font-display: swap; src: url('fonts/space-grotesk.woff2') format('woff2'); }
@@ -106,6 +106,11 @@
             transition: background 0.15s var(--snap), color 0.15s var(--snap);
         }
         .nav-cta:hover { background: var(--bone); color: var(--ink); }
+        .nav-toggle { display: none; width: 44px; height: 44px; flex-direction: column; align-items: center; justify-content: center; gap: 5px; padding: 0; background: transparent; border: 1.5px solid var(--ink); cursor: pointer; }
+        .nav-toggle span { display: block; width: 20px; height: 2px; background: var(--ink); transition: transform 0.2s var(--snap), opacity 0.2s var(--snap); }
+        body.nav-open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        body.nav-open .nav-toggle span:nth-child(2) { opacity: 0; }
+        body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
         /* ---------- Buttons ---------- */
         .btn {
@@ -158,6 +163,15 @@
         }
         .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
         .hero-logo { width: 1em; height: 1em; vertical-align: -0.08em; }
+        /* Hero entrance — staggered, reduced-motion safe */
+        @media (prefers-reduced-motion: no-preference) {
+            .hero-avail, .hero h1, .hero-tagline, .hero-actions { opacity: 0; animation: heroIn 0.7s var(--snap) forwards; }
+            .hero-avail { animation-delay: 0.05s; }
+            .hero h1 { animation-delay: 0.16s; }
+            .hero-tagline { animation-delay: 0.30s; }
+            .hero-actions { animation-delay: 0.42s; }
+        }
+        @keyframes heroIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 
         /* ---------- Marquee ---------- */
         .marquee { border-top: 1.5px solid var(--ink); border-bottom: 1.5px solid var(--ink); background: var(--ink); overflow: hidden; }
@@ -228,9 +242,11 @@
         .svc-row {
             display: grid; grid-template-columns: 80px 1fr 1.4fr; gap: 24px; align-items: baseline;
             padding: 30px 12px; border-bottom: 1.5px solid var(--ink); text-decoration: none; color: var(--ink);
-            transition: background 0.15s var(--snap), color 0.15s var(--snap), padding 0.2s var(--snap);
+            transition: background 0.15s var(--snap), color 0.15s var(--snap);
         }
-        .svc-row:hover { background: var(--ink); color: var(--bone); padding-left: 24px; }
+        .svc-row > * { transition: transform 0.2s var(--snap); }
+        .svc-row:hover { background: var(--ink); color: var(--bone); }
+        .svc-row:hover > * { transform: translateX(10px); }
         .svc-row .num { font-family: var(--m); font-size: 0.86rem; }
         .svc-row h3 { font-family: var(--d); font-weight: 700; font-size: clamp(1.4rem, 2.6vw, 2.1rem); letter-spacing: -0.02em; }
         .svc-row p { font-family: var(--m); font-size: 0.85rem; line-height: 1.55; color: var(--ink-2); }
@@ -264,6 +280,13 @@
         /* ---------- A11y: focus ---------- */
         :focus:not(:focus-visible) { outline: none; }
         a:focus-visible, .btn:focus-visible, .svc-row:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+        .skip-link {
+            position: fixed; left: 12px; top: -64px; z-index: 1000;
+            background: var(--ink); color: var(--bone); text-decoration: none;
+            font-family: var(--m); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em;
+            padding: 12px 18px; transition: top 0.18s var(--snap);
+        }
+        .skip-link:focus { top: 12px; }
 
         /* ---------- Reduced motion ---------- */
         @media (prefers-reduced-motion: reduce) {
@@ -275,8 +298,19 @@
         /* ---------- Mobile: designed, not shrunk ---------- */
         @media (max-width: 760px) {
             .nav { padding: 0 16px; }
-            .nav-links { display: none; }
             .nav-brand b { display: none; }
+            .nav-cta { margin-left: auto; margin-right: 10px; }
+            .nav-toggle { display: inline-flex; }
+            .nav-links {
+                position: fixed; top: var(--nav-h); left: 0; right: 0; z-index: 49;
+                flex-direction: column; gap: 0; padding: 8px 16px 16px;
+                background: var(--bone); border-bottom: 1.5px solid var(--ink);
+                transform: translateY(-8px); opacity: 0; visibility: hidden; pointer-events: none;
+                transition: transform 0.2s var(--snap), opacity 0.2s var(--snap), visibility 0.2s;
+            }
+            body.nav-open .nav-links { transform: none; opacity: 1; visibility: visible; pointer-events: auto; }
+            .nav-link { padding: 14px 8px; border: 0; border-bottom: 1.5px solid var(--grid); letter-spacing: 0.12em; }
+            .nav-link:last-child { border-bottom: 0; }
             .section { padding: 80px 16px; }
             .hero { padding-top: calc(var(--nav-h) + 24px); }
             .hero-actions { flex-direction: column; align-items: stretch; }
@@ -284,15 +318,37 @@
             .about-grid { grid-template-columns: 1fr; gap: 32px; align-items: start; }
             .work-grid { grid-template-columns: 1fr; }
             .svc-row { grid-template-columns: 1fr; gap: 8px; padding: 22px 8px; }
-            .svc-row:hover { padding-left: 8px; }
+            .svc-row:hover > * { transform: translateX(6px); }
             .footer-top { flex-direction: column; }
             .wordmark-band h2 { font-size: 26vw; }
             .sec-index { display: none; }
+        }
+
+        /* ---------- Dark mode (auto, prefers-color-scheme) ---------- */
+        /* Placed last so component overrides win source order over light rules. */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bone: #16150F;
+                --bone-2: #211F18;
+                --ink: #ECE9E1;
+                --ink-2: #9D988C;
+                --grid: rgba(236, 233, 225, 0.05);
+                --grid-dot: rgba(236, 233, 225, 0.10);
+            }
+            .sec-index { -webkit-text-stroke-color: rgba(236, 233, 225, 0.12); }
+            /* Blocks that read dark in light mode must STAY dark, not flip to light */
+            .marquee { background: var(--bone-2); }
+            .marquee-track span { color: var(--ink); }
+            .footer { background: var(--bone-2); color: var(--ink); }
+            .footer-links-col a, .footer-socials a { color: var(--ink); }
+            .footer-col h4, .footer-bottom { color: var(--ink-2); }
+            .footer-bottom { border-top-color: rgba(236, 233, 225, 0.14); }
         }
     </style>
     <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
+    <a class="skip-link" href="#top">Skip to content</a>
     <div class="bg-grid"></div>
     <div class="noise"></div>
 
@@ -308,13 +364,16 @@
             </svg>
             <b>SummitStudios</b>
         </a>
-        <div class="nav-links">
+        <div class="nav-links" id="navLinks">
             <a href="#about" class="nav-link">About</a>
             <a href="#work" class="nav-link">Work</a>
             <a href="#services" class="nav-link">Services</a>
             <a href="#contact" class="nav-link">Contact</a>
         </div>
         <a href="mailto:andreybaran23@gmail.com" class="nav-cta">Start a project</a>
+        <button class="nav-toggle" id="navToggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+            <span></span><span></span><span></span>
+        </button>
     </nav>
 
     <main id="top">
@@ -340,7 +399,7 @@
         <!-- About -->
         <section class="section" id="about">
             <span class="sec-index" aria-hidden="true">01</span>
-            <p class="eyebrow reveal">[ ABOUT ]</p>
+            <p class="eyebrow reveal">About</p>
             <div class="about-grid">
                 <p class="about-lead reveal">A small studio that designs and ships, end to end. We take an idea from the first sketch to a fast, accessible interface. We sweat the motion and detail in between.</p>
                 <ul class="about-points reveal">
@@ -375,7 +434,7 @@
                         </div>
                         <span class="thumb-badge">Live ↗</span>
                     </div>
-                    <h3>Lileya — Flower Shop</h3>
+                    <h3>Lileya - Flower Shop</h3>
                     <p>Boutique florist storefront: catalog with filters, build-your-own-bouquet configurator, and a working cart. Vanilla JS, no build step.</p>
                     <div class="work-foot">View live →</div>
                 </a>
@@ -472,6 +531,18 @@
                 revealEls.forEach((el) => io.observe(el));
             } else {
                 revealEls.forEach((el) => el.classList.add('in'));
+            }
+
+            // Mobile nav toggle
+            const navToggle = document.getElementById('navToggle');
+            if (navToggle) {
+                const setNav = (open) => {
+                    document.body.classList.toggle('nav-open', open);
+                    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+                };
+                navToggle.addEventListener('click', () => setNav(!document.body.classList.contains('nav-open')));
+                document.querySelectorAll('#navLinks a').forEach((a) => a.addEventListener('click', () => setNav(false)));
+                document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setNav(false); });
             }
 
             // Live preview thumbnail: photos crossfade ONLY while the card is
