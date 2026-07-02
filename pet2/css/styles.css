@@ -986,6 +986,23 @@ body::before {
 }
 
 /* =====================================================================
+   Mobile refinements — touch targets ≥44px + smarter checkout order.
+   Additive; placed last so it wins source order over earlier rules.
+   ===================================================================== */
+@media (max-width: 760px) {
+  /* Cart-drawer +/- were 32px — below the 44px touch minimum */
+  .qty button { width: 44px; height: 44px; }
+  /* Filter chips to a comfortable tap height (were ~42px) */
+  .chip { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
+  /* Checkout: surface what you're ordering + the total BEFORE the long form */
+  .order-summary { order: -1; margin-bottom: var(--sp-2); }
+}
+@media (max-width: 420px) {
+  /* Icon-only "add" button must stay a real 44px tap target, not a 34px dot */
+  .add-btn { width: 44px; height: 44px; padding: 0; justify-content: center; }
+}
+
+/* =====================================================================
    Stage 11 · ховер іконки кошика + привабливіший курсор + меню ≤900px.
    ===================================================================== */
 /* Кошик — іконка «оживає» при наведенні (раніше реагував лише фон) */
