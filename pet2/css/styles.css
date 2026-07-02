@@ -1003,6 +1003,113 @@ body::before {
 }
 
 /* =====================================================================
+   Mobile design pass — окрема проробка, а не «стиснутий десктоп».
+   Щільні комерційні картки, свайп-патерни замість довгих стосів,
+   короткий hero, нижній sheet модалки, sticky-CTA на checkout.
+   Все замкнено в media-запитах: десктоп не змінюється.
+   ===================================================================== */
+
+/* Глобально: миттєвий тап без 300ms-затримки */
+a, button, input, select, textarea, label { touch-action: manipulation; }
+
+@media (max-width: 760px) {
+  :root { --gutter: clamp(1.1rem, 4vw, 2.5rem); }
+
+  /* --- Продуктивність: без blur-reveal і вічних анімацій на телефоні --- */
+  .reveal { filter: none; }
+  .hero__photo img { animation: none; }
+  .hero__tag { animation: hero-rise 1s .22s var(--ease-out) both; }
+
+  /* --- Hero: короткий банер, CTA стосом на всю ширину, компактні цифри --- */
+  .hero__photo { height: min(38svh, 320px); }
+  .hero h1 { font-size: clamp(2.05rem, 8.5vw, 2.6rem); }
+  .hero__cta { flex-direction: column; }
+  .hero__cta .btn { width: 100%; }
+  .hero__stats { gap: .8rem; margin-top: 1.3rem; }
+  .hero__stats b { font-size: 1.05rem; }
+  .hero__stats span { font-size: .7rem; }
+
+  /* --- Каталог: фільтри одним рядком зі свайпом, edge-to-edge --- */
+  .toolbar { flex-direction: column; align-items: stretch; gap: .8rem; }
+  .toolbar > div { width: 100%; justify-content: space-between; }
+  .filters {
+    flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter);
+    scrollbar-width: none;
+  }
+  .filters::-webkit-scrollbar { display: none; }
+  .chip { flex: none; white-space: nowrap; scroll-snap-align: start; }
+
+  /* --- Картки товару: щільна 2-колонкова вітрина; опис живе у швидкому
+         перегляді, а не в картці (menше скролу, більше товару на екран) --- */
+  .card-grid { grid-template-columns: 1fr 1fr; gap: .75rem; }
+  .product__desc, .product .note-chips { display: none; }
+  .product__body { gap: .35rem; padding: .8rem .85rem 1rem; }
+  .product__cat { font-size: .68rem; }
+  .product__name { font-size: 1.02rem; }
+  .price { font-size: 1.1rem; }
+  .add-btn { width: 44px; height: 44px; padding: 0; justify-content: center; }
+  .add-btn span { display: none; }
+
+  /* --- 2×2 замість стосів: переваги та приводи --- */
+  .features { grid-template-columns: 1fr 1fr; gap: .7rem; }
+  .feature { padding: 1.05rem .95rem; }
+  .feature__icon { width: 40px; height: 40px; margin-bottom: .6rem; }
+  .feature h3 { font-size: 1.02rem; }
+  .feature p { font-size: .8rem; }
+  .occasions { grid-template-columns: 1fr 1fr; }
+
+  /* --- Свайп-каруселі замість довгих стосів: відгуки та флористи ---
+         (peek наступної картки = природна підказка «можна гортати») */
+  .testi-grid, .team {
+    display: flex; gap: .9rem;
+    overflow-x: auto; -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    margin-inline: calc(-1 * var(--gutter));
+    padding-inline: var(--gutter);
+    scroll-padding-inline: var(--gutter);
+    scrollbar-width: none;
+  }
+  .testi-grid::-webkit-scrollbar, .team::-webkit-scrollbar { display: none; }
+  .testi { flex: 0 0 84%; scroll-snap-align: center; }
+  .florist { flex: 0 0 76%; scroll-snap-align: center; }
+  /* картки в горизонтальному скролі не чекають IntersectionObserver */
+  .testi-grid .reveal, .team .reveal { opacity: 1; transform: none; filter: none; transition: none; }
+
+  /* --- Модалка товару → нижній sheet, як у застосунку --- */
+  .pmodal {
+    top: auto; bottom: 0; left: 50%; width: 100vw; max-height: 90dvh;
+    border-radius: var(--r-lg) var(--r-lg) 0 0;
+    transform: translate(-50%, 10%);
+  }
+  .pmodal.is-open { transform: translate(-50%, 0); }
+  .pmodal::before {
+    content: ""; position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
+    width: 40px; height: 4px; border-radius: var(--r-pill);
+    background: rgba(255,255,255,.85); box-shadow: 0 1px 3px rgba(0,0,0,.18); z-index: 3;
+  }
+  .pmodal__grid { max-height: 90dvh; }
+  .pmodal__actions {
+    position: sticky; bottom: 0; z-index: 2; background: var(--paper);
+    padding-block: .7rem .4rem; margin-top: .9rem;
+    box-shadow: 0 -10px 14px -12px rgba(20,40,30,.25);
+  }
+
+  /* --- Checkout: кнопка підтвердження завжди під пальцем --- */
+  #checkoutForm button[type="submit"] {
+    position: sticky; bottom: calc(12px + env(safe-area-inset-bottom, 0px)); z-index: 5;
+    box-shadow: 0 10px 28px -8px rgba(181,96,76,.55);
+  }
+
+  /* --- Футер: 2 колонки посилань, контакти на всю ширину, тапи ≥44px --- */
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .footer-brand, .footer-col:last-child { grid-column: 1 / -1; }
+  .footer-col a { padding-block: .5rem; }
+  .drawer__foot { padding-bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px)); }
+}
+
+/* =====================================================================
    Stage 11 · ховер іконки кошика + привабливіший курсор + меню ≤900px.
    ===================================================================== */
 /* Кошик — іконка «оживає» при наведенні (раніше реагував лише фон) */
