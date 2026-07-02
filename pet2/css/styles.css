@@ -770,7 +770,11 @@ body::before {
 @media (max-width: 760px) {
   .pmodal { width: 96vw; max-height: 94vh; }
   .pmodal__grid { grid-template-columns: 1fr; grid-template-rows: auto 1fr; overflow-y: auto; }
-  .pmodal__media { aspect-ratio: 16/10; }
+  /* Квадрат замість плоского 16:10: портретні фото букетів показуються на
+     ~80% кадру (а не 50%), голівки квітів не зрізаються. Кадруємо з ухилом
+     угору — суцвіття завжди в кадрі. max-height страхує landscape-телефони. */
+  .pmodal__media { aspect-ratio: 1 / 1; max-height: 56dvh; }
+  .pmodal__media img { object-position: center 30%; }
 }
 @media (prefers-reduced-motion: reduce) {
   .pmodal { transition: opacity .2s linear, visibility .2s; transform: translate(-50%, -50%); }
@@ -832,7 +836,10 @@ body::before {
 @media (max-width: 860px) {
   .configurator { grid-template-columns: 1fr; }
   .cfg-preview { position: static; }
-  .cfg-preview__media { aspect-ratio: 16/10; }
+  /* Той самий принцип, що й у модалці: квадрат замість 16:10, щоб
+     портретне фото букета не втрачало верх; кадруємо з ухилом угору. */
+  .cfg-preview__media { aspect-ratio: 1 / 1; max-height: 60svh; }
+  .cfg-preview__media img { object-position: center 30%; }
 }
 @media (max-width: 520px) {
   .cfg-opts--swatch { grid-template-columns: repeat(2, 1fr); }
